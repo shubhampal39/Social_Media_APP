@@ -1,0 +1,21 @@
+/*h1{
+    color: red;
+}*/
+/*#paragraph{
+    color: darkviolet;
+}*/
+.paragraph2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+}
+#main-body{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+body{
+	background-color: antiquewhite;
+	font-family: 'Times New Roman',Times,serif;
+}
+h1{
+	text-align: center;
+}

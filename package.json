@@ -1,0 +1,24 @@
+{
+  "name": "social_media_web_app",
+  "version": "1.0.0",
+  "description": "making socail media application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhampal39/Social_Media_Web_App.git"
+  },
+  "author": "shubham pal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhampal39/Social_Media_Web_App/issues"
+  },
+  "homepage": "https://github.com/shubhampal39/Social_Media_Web_App#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mongoose": "^5.10.16"
+  }
+}
