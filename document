@@ -1,0 +1,9 @@
+# npm init 
+# npm install
+npm i --save express
+npm i --save -dev nodeom
+$ npm install --save express-handlebars
+npm i --save-dev nodemon
+
+
+
