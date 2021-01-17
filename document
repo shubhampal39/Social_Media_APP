@@ -12,3 +12,13 @@ npm in  --save passport
 npm install --save express-session
 npm install --save body-parser
 npm install save cookie-parser
+
+//more about passport
+https://github.com/mstade/passport-google-oauth2
+
+http://www.passportjs.org/docs/
+
+
+//Creat Google Api 
+https://console.developers.google.com/
+

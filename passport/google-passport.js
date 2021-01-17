@@ -1,5 +1,5 @@
 const passport=require('passport');
-const googleStrategy=require('passport-google-oauth20').Strategy;
+const GoogleStrategy=require('passport-google-oauth20').Strategy;
 const User=require('../models/user');
 const keys=require('../config/keys');
 
@@ -16,16 +16,15 @@ passport.serializeUser(function(user, done) {
 
 
 passport.use(new GoogleStrategy({
-    clientID:keys.GoogleClientId,
+    clientID:keys.GoogleClientID,
     clientSecret: keys.GoogleClientSecret,
     callbackURL: "/auth/google/callback",
-    passReqToCallback: true,
+    // passReqToCallback: true,
     prooxy:true
   },
   (accessToken, refreshToken, profile,cb)=>{
-      console.log(profile);
+      console.log("Profile::::::::::::",profile);
   }
-
 //   function(request, accessToken, refreshToken, profile, done) {
 //     User.findOrCreate({ googleId: profile.id }, function (err, user) {
 //       return done(err, user);
