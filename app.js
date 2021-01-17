@@ -31,7 +31,7 @@ app.engine('handlebars',exphbs({
 app.set('view engine','handlebars');
 app.use(express.static('public'));
 //const port=4400;
-
+mongoose.Promise=global.Promise;
 //mongoose.connect(keys.MongoURI, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connect(keys.MongoURI,
 	{useNewUrlParser: true, useUnifiedTopology: true}
@@ -40,8 +40,6 @@ mongoose.connect(keys.MongoURI,
 }).catch((err)=>{
 	console.log(err)
 })
-
-
 
 const port=process.env.PORT||4000;
 
@@ -58,7 +56,7 @@ app.get('/about',(req,res)=>{
 // });
 //auth
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+  passport.authenticate('google', { scope: ['profile','email'] }));
 
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/' }),
