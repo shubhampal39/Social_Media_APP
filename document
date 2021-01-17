@@ -5,5 +5,10 @@ npm i --save -dev nodeom
 $ npm install --save express-handlebars
 npm i --save-dev nodemon
 npm i --save mongoose
-npm install passport-google-oauth20
+//before  authentication install it
 
+npm install --save passport-google-oauth20
+npm in  --save passport
+npm install --save express-session
+npm install --save body-parser
+npm install save cookie-parser
