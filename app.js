@@ -92,6 +92,12 @@ app.get('/profile', (req, res) => {
         });
     })
 });
+
+app.get('/logout',(req,res)=>{
+	req.logout();
+	res.redirect('/')
+});
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
