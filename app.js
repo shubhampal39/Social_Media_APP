@@ -7,6 +7,7 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const cookieParser=require('cookie-parser');
 const keys=require('./config/keys');
+const User=require('./models/user')
 // const keys=require('./config/keys');
 require('./passport/google-passport');
 
@@ -24,6 +25,10 @@ app.use(session({ secret: 'keyboard cat',
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req,res,next)=>{
+	res.locals.user= req.user || null;
+	next();
+}) 
 app.engine('handlebars',exphbs({
 	defaultLayout:'main'
 }))
@@ -66,8 +71,14 @@ app.get('/auth/google/callback',
   });
 
 app.get('/profile',(req,res)=>{
-	res.render('profile');
-})
+User.findById({_id:req.user._id})
+.then((user)=>{
+	res.render('profile',{
+		user:user
+	});
+  });
+});
+
 app.listen(port,()=>{
 	console.log(`server is running on port ${port}`)
 })
