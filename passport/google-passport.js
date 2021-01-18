@@ -33,7 +33,7 @@ passport.use(new GoogleStrategy({
                    lastname: profile.name.familyName,
                    firstname: profile.name.givenName,
                    email: profile.emails[0].value,
-                   image: profile.photos[0].value
+                   image: profile.photos[0].value //.substring(0,profile,photos[0].value.indexOf('?'))
                }
                // save new user into database
                new User(newUser).save()
