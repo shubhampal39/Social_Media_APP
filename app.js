@@ -11,6 +11,7 @@ const keys = require('./config/keys');
 // User collection
 const User = require('./models/user');
 require('./passport/google-passport');
+require('./passport/facebook-passport')
 // initialize application
 const app = express();
 // Express config
@@ -62,6 +63,7 @@ mongoose.connect(keys.MongoURI, {
 	});
 // set environment variable for port
 const port = process.env.PORT || 3000;
+
 // Handle routes
 app.get('/', (req, res) => {
 	res.render('home');
@@ -84,6 +86,19 @@ app.get('/auth/google/callback',
 		// Successful authentication, redirect home.
 		res.redirect('/profile');
 	});
+//Facebook Auth Route
+
+app.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: ['email']}));
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  (req, res)=> {
+    // Successful authentication, redirect home.
+    res.redirect('/profile');
+  });
+
+//handle profile route
 app.get('/profile', (req, res) => {
 	User.findById({ _id: req.user._id })
 		.then((user) => {

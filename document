@@ -22,6 +22,16 @@ http://www.passportjs.org/docs/
 //Creat Google Api 
 https://console.developers.google.com/
 
+//All Packages Api
+http://www.passportjs.org/packages/
+
 problem during..." Access has been denied to resolve the property "
 
 http://www.prowebguru.com/2020/08/nodejs-express-handlebars-access-denied-resolve-property-solution/#.YAXXmugzbMU
+
+problems:
+1) pushing heroku to git  git push heroku master  :
+solution: git push heroku HEAD:master   
+https://stackoverflow.com/questions/26595874/i-want-make-push-and-get-error-src-refspec-master-does-not-match-any
+
+
