@@ -11,7 +11,8 @@ const keys = require('./config/keys');
 // User collection
 const User = require('./models/user');
 require('./passport/google-passport');
-require('./passport/facebook-passport')
+require('./passport/facebook-passport');
+require('./passport/instagram-passport');
 // initialize application
 const app = express();
 // Express config
@@ -97,6 +98,18 @@ app.get('/auth/facebook/callback',
     // Successful authentication, redirect home.
     res.redirect('/profile');
   });
+//handle instagram auth route
+
+app.get('/auth/instagram',
+  passport.authenticate('instagram'));
+
+app.get('/auth/instagram/callback', 
+  passport.authenticate('instagram', { failureRedirect: '/' }),
+    (req, res) =>{
+    // Successful authentication, redirect home.
+    res.redirect('/profiel');
+  });
+
 
 //handle profile route
 app.get('/profile', (req, res) => {
@@ -106,7 +119,7 @@ app.get('/profile', (req, res) => {
 				user: user
 			});
 		})
-});
+});//
 
 app.get('/logout', (req, res) => {
 	req.logout();

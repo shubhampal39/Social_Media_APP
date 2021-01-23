@@ -13,11 +13,16 @@ npm install --save express-session
 npm install --save body-parser
 npm install save cookie-parser
 
+
+npm install passport-instagram
+
+
 //more about passport
 https://github.com/mstade/passport-google-oauth2
 
 http://www.passportjs.org/docs/
 
+https://github.com/jaredhanson/passport-instagram
 
 //Creat Google Api 
 https://console.developers.google.com/
