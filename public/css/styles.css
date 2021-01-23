@@ -1,7 +1,3 @@
-/* body{
-    background-color: red;
-} */
-
 #homepage{
     text-align:center;
 }
@@ -19,26 +15,36 @@
 }
 
 .btn-gplus{
-    background-color: #e44b34;
-    border-radius: 0%;
+    background: #e44b34;
     color: #fff;
+    border-radius: 0%;
     width: auto;
 }
 .btn-gplus:link,
 .btn-gplus:visited{
-    text-decoration: none;
-    background-color:#e44b34;
+    background-color: #e44b34;
     color: #fff;
+    text-decoration: none;
 }
 .btn-instagram{
     background-color:rgb(195,42,163);
     border-radius: 0%;
-    color: #fff;
     width: auto;
+    color: #fff;
 }
 .btn-instagram:link,
 .btn-instagram:visited{
-    text-decoration: none;
-    background-color:rgb(195,42,163);
+    background-color: rgb(195, 42, 163);
     color: #fff;
+    text-decoration: none;
+}
+#welcome{
+    color:#4aa1f3;
+}
+h1{
+    text-align:center;
+}
+#main{
+    margin-top: 60px;
+    margin-bottom: 50px;
 }

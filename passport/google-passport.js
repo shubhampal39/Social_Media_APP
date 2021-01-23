@@ -14,33 +14,33 @@ passport.deserializeUser(function (id, done) {
 });
 
 passport.use(new GoogleStrategy({
-    clientID: keys.GoogleClientID,
-    clientSecret: keys.GoogleClientSecret,
-    callbackURL: "/auth/google/callback",
-    proxy: true
-},
+        clientID: keys.GoogleClientID,
+        clientSecret: keys.GoogleClientSecret,
+        callbackURL: "/auth/google/callback",
+        proxy: true
+    },
     (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
-        User.findOne({
-            google: profile.id
-        }).then((user) => {
-            if (user) {
-                done(null, user);
-            } else {
-                const newUser = {
-                    google: profile.id,
-                    fullname: profile.displayName,
-                    lastname: profile.name.familyName,
-                    firstname: profile.name.givenName,
-                    email: profile.emails[0].value,
-                    image: profile.photos[0].value //.substring(0,profile,photos[0].value.indexOf('?'))
-                }
-                // save new user into database
-                new User(newUser).save()
-                    .then((user) => {
-                        done(null, user);
-                    })
-            }
-        })
+       console.log(profile);
+       User.findOne({
+           google: profile.id
+       }).then((user) => {
+           if (user) {
+               done(null, user);
+           } else {
+               const newUser = {
+                   google: profile.id,
+                   fullname: profile.displayName,
+                   lastname: profile.name.familyName,
+                   firstname: profile.name.givenName,
+                   email: profile.emails[0].value,
+                   image: profile.photos[0].value.substring(0, profile.photos[0].value.indexOf('?'))
+               }
+               // save new user into database
+               new User(newUser).save()
+               .then((user) => {
+                   done(null, user);
+               })
+           }
+       })
     }
 ));
